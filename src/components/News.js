@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 
 export default class News extends Component {
   articles = []
-
   static defaultProps={
     country:'in',
     category:'general',
@@ -29,7 +28,9 @@ export default class News extends Component {
    
   }
    
-  
+  capitalize = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
   updateNew= async ()=>{
     this.setState({loading:true})
     let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=b43b40f1bbc74c27a00b0c4613692fb2&page=${this.state.page}&pagesize=${this.props.pagesize}`
@@ -62,12 +63,12 @@ export default class News extends Component {
     return (
       <div>
         <div className='container'>
-          <h2 className='mt-3'>InforMedia - Top Headlines</h2>
+          <h2 className='mt-3'>{`InforMedia - Top ${this.capitalize(this.props.category)} Headlines`}</h2>
           {this.state.loading && <Spinner/>}
           <div className='row'>
             {!this.state.loading && this.state.articles.map((element) => {
               return <div key={element.url} className="col-lg-3 col-md-6 col-sm-12">
-                <Newsitem title={element.title?element.title.slice(0, 40):""} description={element.description?element.description.slice(0, 95):"Click Read More button to read the news"} imageUrl={element.urlToImage?element.urlToImage:"https://static.india.com/wp-content/uploads/2022/04/6c0003db-d460-4078-ad84-10cec56d1092.jpg"} newUrl={element.url} />
+                <Newsitem title={element.title?element.title.slice(0, 40):""} description={element.description?element.description.slice(0, 95):"Click Read More button to read the news"} imageUrl={element.urlToImage?element.urlToImage:"https://static.india.com/wp-content/uploads/2022/04/6c0003db-d460-4078-ad84-10cec56d1092.jpg"} newUrl={element.url} author={element.author} publishedAt={element.publishedAt} headName={element.source.name} />
               </div>
 
             })}
