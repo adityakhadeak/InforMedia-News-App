@@ -8,7 +8,7 @@ export default class Newsitem extends Component {
         return (
             <div>
                 <div className="card my-3" >
-                    <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
+                    <span className="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger">
                         {headName}
                     </span>
                     <img src={imageUrl} style={{ height: '10rem' }} className="card-img-top" alt="..." />
@@ -17,7 +17,7 @@ export default class Newsitem extends Component {
                         <p className="card-text">{description + "...."}</p>
                         <p className="card-text "><small className="text-body-secondary">By {author ? author : "Unknown"} At {new Date(publishedAt).toGMTString()}</small></p>
 
-                        <a style={{ position: 'absolute', bottom: "15px" }} target='_blank' href={newUrl} className="btn btn-sm btn-primary">Read More</a>
+                        <a style={{ position: 'absolute', bottom: "15px" }} rel="noreferrer" target='_blank' href={newUrl} className="btn btn-sm btn-primary">Read More</a>
                     </div>
                 </div>
             </div>
