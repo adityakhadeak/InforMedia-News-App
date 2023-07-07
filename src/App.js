@@ -1,6 +1,5 @@
 import './App.css';
-
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Navbar from './components/Navbar';
 import News from './components/News';
 import {
@@ -8,44 +7,47 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-
 import LoadingBar from 'react-top-loading-bar'
 
-export default class App extends Component {
-  pagesize=8;
-  apiKey=process.env.REACT_APP_NEWS_APIKEY
-    
-  state={
-      progress:10
-    }
-  
+const App = () => {
 
-  setProgress=(progress)=>{
-    this.setState({
-      progress:progress
-    })
+  const pageSize =8
+  const apiKey = process.env.REACT_APP_NEWS_APIKEY
+  
+  const [progress, setProgress] = useState(10)
+  const [mode, setMode]=useState("light")
+
+  const toggleMode=()=>{
+    if(mode=="light"){
+      document.body.style.backgroundColor="#191919"
+      setMode("dark")
+    }
+    else{
+      document.body.style.backgroundColor="white"
+      setMode("light")
+    }
   }
-  render() {
-    return (
-      <Router>
-        <div>
-          <Navbar />
-          <LoadingBar
-        color='#f11946'
-        progress={this.state.progress}
-       
-      />
-          <Routes>
-            <Route path='/' element={<News apiKey={this.apiKey} setProgress={this.setProgress} pagesize={this.state.pagesize} key='general'  country="in" category="general" />} />
-            <Route path='/technology' element={<News apiKey={this.apiKey} setProgress={this.setProgress} pagesize={this.state.pagesize} key='technology' country="in" category="technology" />} />
-            <Route path='/entertainment' element={<News apiKey={this.apiKey} setProgress={this.setProgress} pagesize={this.state.pagesize} key='entertainment' country="in" category="entertainment" />} />
-            <Route path='/health' element={<News apiKey={this.apiKey} setProgress={this.setProgress} pagesize={this.state.pagesize} key='health' country="in" category="health" />} />
-            <Route path='/sports' element={<News apiKey={this.apiKey} setProgress={this.setProgress} pagesize={this.state.pagesize} key='sports' country="in" category="sports" />} />
-            <Route path='/science' element={<News apiKey={this.apiKey} setProgress={this.setProgress} pagesize={this.state.pagesize} key='science' country="in" category="science" />} />
-            <Route path='/business' element={<News apiKey={this.apiKey} setProgress={this.setProgress} pagesize={this.state.pagesize} key='science' country="in" category="business" />} />
-          </Routes>
-        </div>
-      </Router>
-    )
-  }
+
+  return (
+    <Router>
+      <div>
+        <Navbar toggleMode={toggleMode} mode={mode} />
+        <LoadingBar
+          color='#f11946'
+          progress={progress}
+        />
+        <Routes>
+          <Route path='/' element={<News mode={mode} apiKey={apiKey} setProgress={setProgress} pageSize={pageSize} key='general' country="in" category="general" />} />
+          <Route path='/technology' element={<News mode={mode} apiKey={apiKey} setProgress={setProgress} pageSize={pageSize} key='technology' country="in" category="technology" />} />
+          <Route path='/entertainment' element={<News mode={mode} apiKey={apiKey} setProgress={setProgress} pageSize={pageSize} key='entertainment' country="in" category="entertainment" />} />
+          <Route path='/health' element={<News mode={mode} apiKey={apiKey} setProgress={setProgress} pageSize={pageSize} key='health' country="in" category="health" />} />
+          <Route path='/sports' element={<News mode={mode} apiKey={apiKey} setProgress={setProgress} pageSize={pageSize} key='sports' country="in" category="sports" />} />
+          <Route path='/science' element={<News mode={mode} apiKey={apiKey} setProgress={setProgress} pageSize={pageSize} key='science' country="in" category="science" />} />
+          <Route path='/business' element={<News mode={mode} apiKey={apiKey} setProgress={setProgress} pageSize={pageSize} key='science' country="in" category="business" />} />
+        </Routes>
+      </div>
+    </Router>
+  )
 }
+
+export default App
