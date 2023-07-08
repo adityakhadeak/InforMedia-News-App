@@ -1,3 +1,11 @@
+![image](https://github.com/adityakhadeak/InforMedia-News-App/assets/88097649/ec8b10ab-57c4-47e3-9675-e47b08457430)
+Dark-Mode
+![image](https://github.com/adityakhadeak/InforMedia-News-App/assets/88097649/19de2fd1-27c4-40e5-b82e-f067bc1188c1)
+Mobile-View
+![image](https://github.com/adityakhadeak/InforMedia-News-App/assets/88097649/445106ff-0d13-4d32-8d3e-fa3c9fc13905)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
