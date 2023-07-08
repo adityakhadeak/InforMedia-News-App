@@ -13,7 +13,7 @@ const News = (props) => {
   const capitalize = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
-
+  document.title=`InforMedia-${capitalize(props.category)}`
   const updateNews = async () => {
     props.setProgress(15)
     const url = `https://newsapi.org/v2/top-headlines?country=in&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pagesize=${props.pagesize}`
