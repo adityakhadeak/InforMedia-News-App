@@ -2,7 +2,8 @@
 Dark-Mode
 ![image](https://github.com/adityakhadeak/InforMedia-News-App/assets/88097649/19de2fd1-27c4-40e5-b82e-f067bc1188c1)
 Mobile-View
-![image](https://github.com/adityakhadeak/InforMedia-News-App/assets/88097649/445106ff-0d13-4d32-8d3e-fa3c9fc13905)
+![image](https://github.com/adityakhadeak/InforMedia-News-App/assets/88097649/aa3870ba-a95c-4701-81a7-fbabd3872c53)
+
 
 
 
